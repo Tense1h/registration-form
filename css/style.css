@@ -1,0 +1,90 @@
+:root {
+  --ink: #1f2933;
+  --muted: #5f6b7a;
+  --paper: #f4f6f9;
+  --card: #fff;
+  --line: #ccd4de;
+  --accent: #0b5fa5;
+  --ok: #1f7a4d;
+  --bad: #b32424;
+}
+ 
+* { box-sizing: border-box; }
+ 
+body {
+  margin: 0;
+  padding: 2rem 1rem;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+ 
+.app {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+ 
+h1 { margin: 0 0 1.25rem; font-size: 1.5rem; }
+h2 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+ 
+.field { margin-bottom: 1rem; }
+label { display: block; margin-bottom: 0.25rem; font-weight: 600; }
+ 
+input[type="text"], input[type="email"], input[type="tel"], input[type="password"], select {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+}
+ 
+input[aria-invalid="true"], select[aria-invalid="true"] {
+  border-color: var(--bad);
+  border-width: 2px;
+}
+ 
+.check { display: flex; align-items: center; gap: 0.5rem; }
+.check label { margin: 0; font-weight: 400; }
+ 
+.error, .feedback { margin: 0.25rem 0 0; font-size: 0.9rem; }
+.error { color: var(--bad); }
+.error:not(:empty)::before { content: "Error: "; font-weight: 700; }
+.feedback { color: var(--muted); }
+.feedback.met { color: var(--ok); }
+ 
+.actions { display: flex; gap: 0.5rem; }
+ 
+button {
+  padding: 0.55rem 1.1rem;
+  font: inherit;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button.secondary { background: var(--muted); }
+button:hover { filter: brightness(1.1); }
+ 
+input:focus-visible, select:focus-visible, button:focus-visible {
+  outline: 3px solid #f2b705;
+  outline-offset: 2px;
+}
+ 
+.success { margin: 1rem 0 0; color: var(--ok); font-weight: 700; }
+ 
+#registrationSummary {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--ok);
+  border-radius: 6px;
+}
+#registrationSummary[hidden] { display: none; }
+dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 0.3rem 1rem; }
+dt { font-weight: 600; }
+dd { margin: 0; overflow-wrap: anywhere; }  
